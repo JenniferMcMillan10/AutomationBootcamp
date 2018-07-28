@@ -1,33 +1,41 @@
-﻿using System;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System;
 using TechTalk.SpecFlow;
 
-namespace AutomationBootcamp...
+namespace AutomationBootcamp
 {
     [Binding]
     public class SpecFlowFeature1Steps
     {
+        IWebDriver driver;
         [Given(@"the user has navigated to wikipedia")]
         public void GivenTheUserHasNavigatedToWikipedia()
         {
-            ScenarioContext.Current.Pending();
+            driver = new ChromeDriver
+            {
+                Url = "https://en.wikipedia.org/wiki/Main_Page"
+            };
         }
-        
+
         [When(@"the user enters '(.*)' into the search field")]
-        public void WhenTheUserEntersIntoTheSearchField(string p0)
+        public void WhenTheUserEntersIntoTheSearchField(string data)
         {
-            ScenarioContext.Current.Pending();
+            driver.FindElement(By.Id("searchInput")).SendKeys(data);
         }
-        
+
         [When(@"clicks search")]
         public void WhenClicksSearch()
         {
-            ScenarioContext.Current.Pending();
+            driver.FindElement(By.Id("searchButton")).Click();
         }
-        
+
         [Then(@"they will have results on '(.*)'")]
-        public void ThenTheyWillHaveResultsOn(string p0)
+        public void ThenTheyWillHaveResultsOn(string data)
         {
-            ScenarioContext.Current.Pending();
+            string title = driver.Title;
+            Assert.IsTrue(title.Contains(data));
         }
     }
 }

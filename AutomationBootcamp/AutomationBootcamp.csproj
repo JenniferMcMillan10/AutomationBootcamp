@@ -62,9 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SpecFlowFeature1Steps.cs">
-      <Link>SpecFlowFeature1Steps.cs</Link>
+      <Link>SeleniumBasics\SpecFlowFeature1Steps.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleniumBasics\FirstTestCase.cs" />
     <Compile Include="SeleniumBasics\NUnitTest.cs" />
     <Compile Include="SeleniumBasics\SpecFlowFeature1.feature.cs">
       <AutoGen>True</AutoGen>
